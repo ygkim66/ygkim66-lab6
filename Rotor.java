@@ -4,12 +4,15 @@ public class Rotor {
     private String rotorValues;
     private char startChar;
     private char currentChar;
+
+    private int numRot;
         
     public Rotor(String v, char c){
         this.rotorValues = new String(v);
         this.startChar = c;
 
         this.currentChar = charAt(0);
+        numRot = 0;
         
         while(!this.rotate());
             
@@ -18,6 +21,8 @@ public class Rotor {
     //return false otherwise
     //rotates one click clockwise
     public boolean rotate(){
+        this.currentChar = charAt(0);
+
         int length = this.rotorValues.length();
         this.rotorValues = this.rotorValues.substring(length-1, length) + this.rotorValues.substring(0,length-1);
 
@@ -25,9 +30,8 @@ public class Rotor {
             this.currentChar = charAt(0);
             return true;
         }
-        return false;
-
-               
+        else
+            return false;
     }
     
     //@return index at String where a given character appears
@@ -53,6 +57,7 @@ public class Rotor {
         if (this.startChar == this.currentChar){
             return true;
         }
+        return false;
     }
 }
     
