@@ -22,7 +22,23 @@ public class Enigma{
 
     public String decrypt(String message){        
         //TODO
+        int outerCount = -1;
+        int middleCount = -1;
+        char middleRotor = 0;
+        char outerRotor = 0;
         String dec = "";
+
+        for (int i = 0; i < message.length(); i++){
+            outerRotor = rotors[2].charAt(i);
+            outerCount = rotors[2].indexOf(outerRotor);
+            middleRotor = rotors[1].charAt(middleRotor);
+
+            outerRotor = rotors[2].charAt(middleRotor);
+            outerCount = rotors[2].indexOf(outerRotor);
+
+            dec = dec + rotors[0].charAt(outerCount);
+            rotate();
+        }
         return dec;
     }
 
