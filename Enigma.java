@@ -29,12 +29,18 @@ public class Enigma{
         String dec = "";
 
         for (int i = 0; i < message.length(); i++){
-            outerRotor = rotors[2].charAt(i);
-            outerCount = rotors[2].indexOf(outerRotor);
-            middleRotor = rotors[1].charAt(middleRotor);
+        //    outerRotor = rotors[2].charAt(i);
+            //grabs location of character of message on outer rotor
+            outerCount = rotors[2].indexOf(message.charAt(i));
+            //grabs char of middle rotor at same location of outer 
+            middleRotor = rotors[1].charAt(outerCount);
 
-            outerRotor = rotors[2].charAt(middleRotor);
-            outerCount = rotors[2].indexOf(outerRotor);
+            //finds middleRotor character in outer rotor
+       //     outerRotor = rotors[2].charAt(middleRotor);
+         //   outerCount = rotors[2].indexOf(outerRotor);
+            
+            outerCount = rotors[2].indexOf(middleRotor);
+          //  outerRotor = rotors[2].charAt(outerCount);
 
             dec = dec + rotors[0].charAt(outerCount);
             rotate();
