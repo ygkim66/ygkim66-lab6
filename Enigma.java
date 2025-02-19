@@ -29,22 +29,20 @@ public class Enigma{
 
     
     public String encrypt(String message){
-        //TODO
         String enc = "";
         int innerCount = -1;
-        int outerCount = -1;
         int middleCount = -1;
-        char innerRotor = 0;
         char outerRotor = 0;
-        char middleRotor = 0;
-        String step1 = "";
         for (int i = 0; i < message.length(); i++){
             //finds location of first letter in message
             innerCount = rotors[0].indexOf(message.charAt(i));
+            //finds character at location of innercount
             outerRotor = rotors[2].charAt(innerCount);
+            //finds location of outerRotor character
             middleCount = rotors[1].indexOf(outerRotor);
+            //adds outer rotor character from index of middle rotor
             enc = enc + rotors[2].charAt(middleCount);
-
+            //rotates necessary rotors
             rotate();
         }
         return enc;
