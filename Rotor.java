@@ -1,19 +1,13 @@
 public class Rotor {
-
-    
     private String rotorValues;
     private char startChar;
     private char currentChar;
-
-    private int numRot;
         
     public Rotor(String v, char c){
         this.rotorValues = new String(v);
         this.startChar = c;
 
-        this.currentChar = charAt(0);
-        numRot = 0;
-        
+        this.currentChar = charAt(0);        
         while(!this.rotate());
             
     }
@@ -36,7 +30,6 @@ public class Rotor {
     
     //@return index at String where a given character appears
     public int indexOf(char c){
-        //TODO
         char[] stringArray = this.rotorValues.toCharArray();
         for (int i = 0; i < stringArray.length; i++){
             if (stringArray[i] == c){
@@ -47,17 +40,8 @@ public class Rotor {
     }
     //@return char character located at param idx
     public char charAt(int idx){
-        //TODO
         return this.rotorValues.charAt(idx);
     }
 
-    //HELPER METHOD: if 27 rotations occured, return true
-    //you can get status of rotation without causing a rotation accidentally
-    public boolean fullyRotated(){
-        if (this.startChar == this.currentChar){
-            return true;
-        }
-        return false;
-    }
 }
     
